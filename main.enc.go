@@ -13,7 +13,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-func enableCORS(next http.Handler) http.Handler {
+func enableCORSw(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Set CORS headers
 		w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -30,7 +30,7 @@ func enableCORS(next http.Handler) http.Handler {
 	})
 }
 
-func main() {
+func mainenc() {
 
 	db := app.NewDB()
 	validate := validator.New()
@@ -62,3 +62,5 @@ func main() {
 	err := server.ListenAndServe()
 	helper.PanicIfError(err)
 }
+
+
